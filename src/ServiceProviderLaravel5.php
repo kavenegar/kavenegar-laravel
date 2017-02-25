@@ -23,8 +23,8 @@ class ServiceProviderLaravel5 extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/config/config.php', 'kavenegar');
-        $this->app['kavenegar'] = $this->app->share(function ($app) {
+        $this->mergeConfigFrom(__DIR__.'/config/config.php', 'kavenegar');    
+        $app->singleton('kavenegar', function ($app) {
             return new KavenegarApi($app['config']->get('kavenegar.apikey'));
         });
     }
