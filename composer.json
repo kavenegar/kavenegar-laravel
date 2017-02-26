@@ -8,6 +8,10 @@
         {
             "name" : "Kavenegar API Team",
             "email": "support@kavenegar.com"
+        },
+        {
+            "name": "Ghobad Palvaneh",
+            "email": "ghobad.vm@gmail.com"
         }
     ],
     "require": {
@@ -17,6 +21,5 @@
         "psr-4": {
             "Kavenegar\\Laravel\\": "src/"
         }
-    },
-	"minimum-stability" : "stable"
+    }
 }
