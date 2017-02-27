@@ -1,9 +1,6 @@
 <?php
-
 namespace Kavenegar\Laravel;
-
 use Kavenegar\KavenegarApi as KavenegarApi;
-
 class ServiceProviderLaravel5 extends \Illuminate\Support\ServiceProvider
 {
     /**
@@ -15,7 +12,6 @@ class ServiceProviderLaravel5 extends \Illuminate\Support\ServiceProvider
     {
         $this->publishes([__DIR__.'/config/config.php' => config_path('kavenegar.php')]);
     }
-
     /**
      * Register the service provider.
      *
@@ -23,8 +19,8 @@ class ServiceProviderLaravel5 extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/config/config.php', 'kavenegar');
-        $this->app['kavenegar'] = $this->app->share(function ($app) {
+        $this->mergeConfigFrom(__DIR__.'/config/config.php', 'kavenegar');    
+        $app->singleton('kavenegar', function ($app) {
             return new KavenegarApi($app['config']->get('kavenegar.apikey'));
         });
     }
