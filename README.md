@@ -29,12 +29,12 @@ You must install the service provider:
 
 ### Setting up your Kavenegar account
 
-Add your Kavenegar Account Key and From Number (optional) to your `config/services.php`:
+Add your Kavenegar Account Key and Sender Number (optional) to your `config/services.php`:
 
 ```php
 // config/services.php
 ...
-'jusibe' => [
+'kavenegar' => [
     'key' => env('KAVENEGAR_API_KEY'),
     'sender' => env('KAVENEGAR_SENDER')
 ],
