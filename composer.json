@@ -1,25 +1,26 @@
-{
-    "name": "kavenegar/laravel",
-    "description": "laravel 4 and 5 kavenegar integration",
-    "type": "laravel-package",
-    "keywords": ["laravel","kavenegar","sms","api"],
-    "license": "MIT",
-	"authors": [
-        {
-            "name" : "Kavenegar API Team",
-            "email": "support@kavenegar.com"
-        },
-	{
-          "name": "Ghobad Palvaneh",
-          "email": "ghobad.vm@gmail.com"		          
-	}
-    ],
-    "require": {
-        "kavenegar/php": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Kavenegar\\Laravel\\": "src/"
-        }
-    },
+{  
+   "name":"kavenegar/laravel",
+   "description":"laravel 4 and 5 kavenegar integration",
+   "type":"laravel-package",
+   "keywords":[  
+      "laravel",
+      "kavenegar",
+      "sms",
+      "api"
+   ],
+   "license":"MIT",
+   "authors":[  
+      {  
+         "name":"Kavenegar API Team",
+         "email":"support@kavenegar.com"
+      }
+   ],
+   "require":{  
+      "kavenegar/php":"*"
+   },
+   "autoload":{  
+      "psr-4":{  
+         "Kavenegar\\Laravel\\":"src/"
+      }
+   }
 }
