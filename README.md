@@ -74,12 +74,12 @@ Well, There is an example to Send SMS by Laravel below.
 
 ```php
 
-use Kavenegar as api;
+use Kavenegar;
 try{
     $sender = "10004346";
     $message = "خدمات پیام کوتاه کاوه نگار";
     $receptor = array("09123456789","09367891011");
-    $result = api->Send($sender,$receptor,$message);
+    $result = Kavenegar::Send($sender,$receptor,$message);
     if($result){
         foreach($result as $r){
             echo "messageid = $r->messageid";
