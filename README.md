@@ -43,7 +43,7 @@ Then add the facade to your `aliases` array:
 ],
 ```
 
-Finally, publish the config file with `php artisan vendor:publish`. You'll find it at `config/kavenegar.php`.
+Finally, publish the config file with `php artisan vendor:publish`or`php artisan vendor:publish --provider="Kavenegar\Laravel\ServiceProviderLaravel5"`.You'll find it at `config/kavenegar.php`.
 
 ## Laravel 4
 
