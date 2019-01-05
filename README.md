@@ -61,7 +61,7 @@ Then add the facade to your `aliases` array:
 ```php
 'aliases' => [
   ...
-  'Kavenegar' => Kavenegar\Laravel\Facade',
+  'Kavenegar' => 'Kavenegar\Laravel\Facade',
 ],
 ```
 
