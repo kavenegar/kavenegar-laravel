@@ -22,5 +22,15 @@
       "psr-4":{  
          "Kavenegar\\Laravel\\":"src/"
       }
-   }
+   },
+   "extra": {
+        "laravel": {
+            "providers": [
+                "Kavenegar\\Laravel\\ServiceProvider"
+            ],
+            "aliases": {
+                'Kavenegar' => 'Kavenegar\\Laravel\\Facade'
+            }
+        }
+    },
 }
