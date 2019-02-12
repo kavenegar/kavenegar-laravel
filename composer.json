@@ -29,7 +29,7 @@
                 "Kavenegar\\Laravel\\ServiceProvider"
             ],
             "aliases": {
-                'Kavenegar' => 'Kavenegar\\Laravel\\Facade'
+                'Kavenegar':'Kavenegar\\Laravel\\Facade'
             }
         }
     },
