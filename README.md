@@ -23,7 +23,7 @@ Install it this way :
 composer require kavenegar/laravel
 ```
 
-## Laravel 6
+## Laravel 5 and 6
 
 Add the `Kavenegar\Laravel\ServiceProvider` provider to the `providers` array in `config/app.php`:
 
@@ -43,29 +43,10 @@ Then add the facade to your `aliases` array:
 ],
 ```
 
-Finally, publish the config file with `php artisan vendor:publish`or`php artisan vendor:publish --provider="Kavenegar\Laravel\ServiceProviderLaravel6"`.You'll find it at `config/kavenegar.php`.
-
-## Laravel 5
-
-Add the `Kavenegar\Laravel\ServiceProvider` provider to the `providers` array in `config/app.php`:
-
-```php
-'providers' => [
-  ...
-  Kavenegar\Laravel\ServiceProvider::class,
-],
-```
-
-Then add the facade to your `aliases` array:
-
-```php
-'aliases' => [
-  ...
-  'Kavenegar' => Kavenegar\Laravel\Facade::class,
-],
-```
-
-Finally, publish the config file with `php artisan vendor:publish`or`php artisan vendor:publish --provider="Kavenegar\Laravel\ServiceProviderLaravel5"`.You'll find it at `config/kavenegar.php`.
+Finally, publish the config file with `php artisan vendor:publish`
+Or alternatively for laravel 5 you can do: `php artisan vendor:publish --provider="Kavenegar\Laravel\ServiceProviderLaravel5"`.
+And for laravel 6: `php artisan vendor:publish --provider="Kavenegar\Laravel\ServiceProviderLaravel6"`.
+And you'll find it at `config/kavenegar.php`.
 
 ## Laravel 4
 
