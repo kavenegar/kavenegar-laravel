@@ -1,5 +1,5 @@
 {  
-   "name":"kavenegar/laravel",
+   "name":"beaumind/kavenegar-laravel",
    "description":"laravel 4 and 5 kavenegar integration",
    "type":"laravel-package",
    "keywords":[  
