@@ -3,6 +3,7 @@
 namespace Kavenegar\Laravel;
 
 use Kavenegar\KavenegarApi as KavenegarApi;
+use Kavenegar\Laravel\Channel\KavenegarChannel;
 
 class ServiceProviderLaravel6 extends \Illuminate\Support\ServiceProvider
 {
@@ -25,6 +26,11 @@ class ServiceProviderLaravel6 extends \Illuminate\Support\ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'kavenegar');
         $this->app->singleton('kavenegar', function ($app) {
             return new KavenegarApi($app['config']->get('kavenegar.apikey'));
+        });
+        Notification::resolved(function ($service) {
+            $service->extend('kavenegar', function ($app) {
+                return new \Kavenegar\Laravel\Channel\KavenegarChannel($app->make('kavenegar'));
+            });
         });
     }
 }
