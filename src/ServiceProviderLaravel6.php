@@ -4,6 +4,7 @@ namespace Kavenegar\Laravel;
 
 use Kavenegar\KavenegarApi as KavenegarApi;
 use Kavenegar\Laravel\Channel\KavenegarChannel;
+use Illuminate\Support\Facades\Notification;
 
 class ServiceProviderLaravel6 extends \Illuminate\Support\ServiceProvider
 {
