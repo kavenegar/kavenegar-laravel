@@ -51,6 +51,8 @@ And for laravel 6: `php artisan vendor:publish --provider="Kavenegar\Laravel\Ser
 &nbsp;
 And you'll find it at `config/kavenegar.php`.
 
+You can also set `KAVENEGAR_API_KEY` in your `.env` file.
+
 ## Laravel 4
 
 Add the `Kavenegar\Laravel\ServiceProvider` provider to the `providers` array in `app/config.php`:
