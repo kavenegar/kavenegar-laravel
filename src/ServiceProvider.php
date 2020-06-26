@@ -69,13 +69,14 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 return new ServiceProviderLaravel4($app);
 
             case 5:
-                return new ServiceProviderLaravel5($app);
+                return new ServiceProviderLaravel($app);
 
             case 6:
-                return new ServiceProviderLaravel6($app);
-
+                return new ServiceProviderLaravel($app);
+            
             case 7:
-                return new ServiceProviderLaravel7($app);
+                return new ServiceProviderLaravel($app);
+            
             default:
                 throw new RuntimeException('Your version of Laravel is not supported');
         }
