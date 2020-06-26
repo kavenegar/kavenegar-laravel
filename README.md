@@ -79,7 +79,6 @@ Well, There is an example to Send SMS by Laravel below.
 
 ```php
 
-use Kavenegar;
 try{
     $sender = "10004346";
     $message = "خدمات پیام کوتاه کاوه نگار";
@@ -98,11 +97,11 @@ try{
         }
     }
 }
-catch(\Kavenegar\Exceptions\ApiException $e){
+catch(ApiException $e){
     // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
     echo $e->errorMessage();
 }
-catch(\Kavenegar\Exceptions\HttpException $e){
+catch(HttpException $e){
     // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
     echo $e->errorMessage();
 }
