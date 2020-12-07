@@ -16,7 +16,7 @@ After that you just need to pick API-KEY up from <a href="http://panel.kavenegar
 Use in these ways : 
 
 ```php
-composer require masihjay-z/kavenegar
+composer require kavenegar/laravel
 ```
 
 or add
