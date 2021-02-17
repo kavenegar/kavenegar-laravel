@@ -1,114 +1,139 @@
 
-# kavenegar-PHP
+# Kavenegar Laravel
+**First of all you will ned an [API Key](http://panel.kavenegar.com/Client/setting/index "API Key") . You can get one [Here](https://panel.kavenegar.com/Client/Membership/Register).**
+##### Supported Laravel Versions:
+* V.4
+* V.5
+* V.6
+* V.7
+* **V.8**
+> We highly recomment you to always use the latest version of laravel
 
-# <a href="http://kavenegar.com/rest.html">Kavenegar RESTful API Document</a>
-If you need to future information about API document Please visit RESTful Document
-
-## Installation
-<p>
-First of all, You need to make an account on Kavenegar from <a href="https://panel.kavenegar.com/Client/Membership/Register">Here</a>
-</p>
-<p>
-After that you just need to pick API-KEY up from <a href="http://panel.kavenegar.com/Client/setting/index">My Account</a> section.
-</p>
-<hr>
-
-Use in these ways : 
+# Installation
+## Step 1 - Install the package
+* **Method 1**:
+You can install kavenegar/laravel with Composer directly in your project:
 
 ```php
 composer require kavenegar/laravel
 ```
 
-or add
+* **Method 2**:
+Add this line to  **Composer.json** file in your project
 
 ```php
 "kavenegar/php": "*"
 ```
-And run following command to download extension using **composer** 
-
+Then run following command to download extension using **composer** 
 
 ```php
 $ composer update
 ```
 
-
-Usage
------
-
-Well, There is an example to Send SMS by PHP.
-
+## Step 2
+Head to **config/app.php** and add this line to the end of **providers** Array:
 ```php
-require __DIR__ . '/vendor/autoload.php';
-
-try{
-	$api = new \Kavenegar\KavenegarApi( "API Key" );
-	$sender = "10004346";
-	$message = "خدمات پیام کوتاه کاوه نگار";
-	$receptor = array("09123456789","09367891011");
-	$result = $api->Send($sender,$receptor,$message);
-	if($result){
-		foreach($result as $r){
-			echo "messageid = $r->messageid";
-			echo "message = $r->message";
-			echo "status = $r->status";
-			echo "statustext = $r->statustext";
-			echo "sender = $r->sender";
-			echo "receptor = $r->receptor";
-			echo "date = $r->date";
-			echo "cost = $r->cost";
-		}		
-	}
-}
-catch(\Kavenegar\Exceptions\ApiException $e){
-	// در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
-	echo $e->errorMessage();
-}
-catch(\Kavenegar\Exceptions\HttpException $e){
-	// در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
-	echo $e->errorMessage();
-}
-
-/*
-sample output
-{
-    "return":
-    {
-        "status":200,
-        "message":"تایید شد"
-    },
-    "entries": 
-    [
-        {
-            "messageid":8792343,
-            "message":"خدمات پیام کوتاه کاوه نگار",
-            "status":1,
-            "statustext":"در صف ارسال",
-            "sender":"10004346",
-            "receptor":"09123456789",
-            "date":1356619709,
-            "cost":120
-        },
-        {
-            "messageid":8792344,
-            "message":"خدمات پیام کوتاه کاوه نگار",
-            "status":1,
-            "statustext":"در صف ارسال",
-            "sender":"10004346",
-            "receptor":"09367891011",
-            "date":1356619709,
-            "cost":120
-        }
-    ]
-}
-*/
+Kavenegar\Laravel\ServiceProvider::class,
 ```
 
+So that array must me something like this:
+```php
+'providers' => [
+		/*
+		* Laravel Framework Service Providers...
+		*/
+		.
+		.
+		.
+		Kavenegar\Laravel\ServiceProvider::class
+]
+```
+
+Then in the **config/app.php** and add this line to the end of **aliases** Array:
+```php
+'Kavenegar' => Kavenegar\Laravel\Facade::class,
+```
+
+## Step 3 - Publish
+Run this command in your project dirctory:
+```
+php artisan vendor:publish
+```
+
+In the message appear, find the number of Kavenegar, enter the related number then hit Enter. for Example in the below case you must enter **8** then enter:
+ 
+> Which provider or tag's files would you like to publish?:
+  [0 ] Publish files from all providers and tags listed below
+  [1 ] Provider: Facade\Ignition\IgnitionServiceProvider
+  [2 ] Provider: Fideloper\Proxy\TrustedProxyServiceProvider
+  [3 ] Provider: Fruitcake\Cors\CorsServiceProvider
+  [4 ] Provider: Illuminate\Foundation\Providers\FoundationServiceProvider
+  [5 ] Provider: Illuminate\Mail\MailServiceProvider
+  [6 ] Provider: Illuminate\Notifications\NotificationServiceProvider
+  [7 ] Provider: Illuminate\Pagination\PaginationServiceProvider
+ *** [8 ] Provider: Kavenegar\Laravel\ServiceProviderLaravel8***
+ .
+ .
+ .
+
+## Step 4 - Api-Key
+Now you must define your [API Key](http://panel.kavenegar.com/Client/setting/index "API Key")  to project. for this head to **config/kavenegar.php** then put your API KEY in the code:
+```
+<?php 
+return [
+    'apikey' => ' ',
+];
+```
+### All Set
+# Usage
+You can use the package where ever you want.
+* First use the class:
+```php
+use Kavenegar;
+```
+
+Then use this pattern to send SMS:
+```php
+try{
+    $sender = "10004346";		//This is the Sender number 
+	
+    $message = "خدمات پیام کوتاه کاوه نگار";		//The body of SMS
+	
+    $receptor = array("09361234567","09191234567");			//Receptors numbers
+	
+    $result = Kavenegar::Send($sender,$receptor,$message);
+    if($result){
+        foreach($result as $r){
+            echo "messageid = $r->messageid";
+            echo "message = $r->message";
+            echo "status = $r->status";
+            echo "statustext = $r->statustext";
+            echo "sender = $r->sender";
+            echo "receptor = $r->receptor";
+            echo "date = $r->date";
+            echo "cost = $r->cost";
+        }       
+    }
+}
+catch(\Kavenegar\Exceptions\ApiException $e){
+    // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
+    echo $e->errorMessage();
+}
+catch(\Kavenegar\Exceptions\HttpException $e){
+    // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
+    echo $e->errorMessage();
+}
+```
+
+You can find all the **Error handlings** and **API parameters** and **Usage methods** in the [KaveNegar](https://kavenegar.com) website.
+
+# Usage in Notifications
 Also you can use KavengarChannel for your notification:
 
 create your notification:
-``
+```
 php artisan make:notification InvoicePaid
-``
+```
 
 extend your notification from KavenegarBaseNotification:
 
@@ -140,7 +165,7 @@ you should add Notifiable trait and routeNotificationForKavenegar method in your
 class User extends Authenticatable
 {
     use Notifiable;
-    
+
     public function routeNotificationForKavenegar($driver, $notification = null)
     {
         return $this->mobile;
@@ -148,8 +173,8 @@ class User extends Authenticatable
 
 }
 ````
-<i><b>Notice: if you don't add routeNotificationForKavenegar in your notifiable model then you should set your receiver in your notification :
-````php
+** *Notice: IF you DO NOT add routeNotificationForKavenegar in your notifiable model then you should set your receiver in your notification :* **
+```php
 class InvoicePaid extends KavenegarBaseNotification
 {
 
@@ -158,7 +183,7 @@ class InvoicePaid extends KavenegarBaseNotification
         return (new KavenegarMessage('فاکتور شما به شماره ۱۲۳۴ پرداخت شد.'))->from('10004346')->to('092100000');
     }
 }
-````
+```
 for send verify lookup message you should use verifyLookup method for set method name and tokens:
 
 ````php
@@ -176,12 +201,9 @@ class InvoicePaid extends KavenegarBaseNotification
 
 ## Contribution
 
-Bug fixes, docs, and enhancements welcome! Please let us know <a href="mailto:support@kavenegar.com?Subject=SDK" target="_top">support@kavenegar.com</a>
+Bug fixes, docs, and enhancements welcome! Please let us know [support@kavenegar.com](mailto:support@kavenegar.com?Subject=SDK)
 
-<hr>
-
-<div dir='rtl'>
-	
+<div  dir="rtl">
 ## راهنما
 
 ### معرفی سرویس کاوه نگار
@@ -207,12 +229,7 @@ Bug fixes, docs, and enhancements welcome! Please let us know <a href="mailto:su
 مراجعه نمایید .
 
  اگر در استفاده از کیت های سرویس کاوه نگار مشکلی یا پیشنهادی  داشتید ما را با یک Pull Request  یا  ارسال ایمیل به support@kavenegar.com  خوشحال کنید.
- 
-##
-![http://kavenegar.com](http://kavenegar.com/public/images/logo.png)		
-
-[http://kavenegar.com](http://kavenegar.com)	
-
 </div>
+------------
 
-
+[http://kavenegar.com](http://kavenegar.com)
