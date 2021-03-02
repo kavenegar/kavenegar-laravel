@@ -1,6 +1,6 @@
 
 # Kavenegar Laravel
-**First of all you will ned an [API Key](http://panel.kavenegar.com/Client/setting/index "API Key") . You can get one [Here](https://panel.kavenegar.com/Client/Membership/Register).**
+**First of all you will ned an [API Key](http://panel.kavenegar.com/client/setting/account "API Key") . You can get one [Here](https://panel.kavenegar.com/Client/Membership/Register).**
 ##### Supported Laravel Versions:
 * V.4
 * V.5
@@ -77,7 +77,7 @@ In the message appear, find the number of Kavenegar, enter the related number th
  .
 
 ## Step 4 - Api-Key
-Now you must define your [API Key](http://panel.kavenegar.com/Client/setting/index "API Key")  to project. for this head to **config/kavenegar.php** then put your API KEY in the code:
+Now you must define your [API Key](http://panel.kavenegar.com/client/setting/account "API Key")  to project. for this head to **config/kavenegar.php** then put your API KEY in the code:
 ```
 <?php 
 return [
