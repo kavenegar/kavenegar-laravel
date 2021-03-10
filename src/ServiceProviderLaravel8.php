@@ -3,6 +3,8 @@
 namespace Kavenegar\Laravel;
 
 use Kavenegar\KavenegarApi as KavenegarApi;
+use Illuminate\Support\Facades\Notification;
+use Kavenegar\Laravel\Channel\KavenegarChannel;
 
 class ServiceProviderLaravel8 extends \Illuminate\Support\ServiceProvider
 {
@@ -26,5 +28,10 @@ class ServiceProviderLaravel8 extends \Illuminate\Support\ServiceProvider
         $this->app->singleton('kavenegar', function ($app) {
             return new KavenegarApi($app['config']->get('kavenegar.apikey'));
         });
+        Notification::resolved( function ( $service ) {
+            $service->extend( 'kavenegar', function ( $app ) {
+                return new KavenegarChannel( $app->make( 'kavenegar' ) );
+            } );
+        } );
     }
 }
