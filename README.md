@@ -74,19 +74,21 @@ php artisan vendor:publish
 
 In the message appear, find the number of Kavenegar, enter the related number then hit Enter. for Example in the below case you must enter **9** then enter:
 
-> Which provider or tag's files would you like to publish?:
-> [0 ] Publish files from all providers and tags listed below
-> [1 ] Provider: Facade\Ignition\IgnitionServiceProvider
-> [2 ] Provider: Fideloper\Proxy\TrustedProxyServiceProvider
-> [3 ] Provider: Fruitcake\Cors\CorsServiceProvider
-> [4 ] Provider: Illuminate\Foundation\Providers\FoundationServiceProvider
-> [5 ] Provider: Illuminate\Mail\MailServiceProvider
-> [6 ] Provider: Illuminate\Notifications\NotificationServiceProvider
-> [7 ] Provider: Illuminate\Pagination\PaginationServiceProvider
-> **_ [8 ] Provider: Kavenegar\Laravel\ServiceProviderLaravel9_**
-> .
-> .
-> .
+```bash
+Which provider or tag files would you like to publish?:
+[0 ] Publish files from all providers and tags listed below
+[1 ] Provider: Facade\Ignition\IgnitionServiceProvider
+[2 ] Provider: Fideloper\Proxy\TrustedProxyServiceProvider
+[3 ] Provider: Fruitcake\Cors\CorsServiceProvider
+[4 ] Provider: Illuminate\Foundation\Providers\FoundationServiceProvider
+[5 ] Provider: Illuminate\Mail\MailServiceProvider
+[6 ] Provider: Illuminate\Notifications\NotificationServiceProvider
+[7 ] Provider: Illuminate\Pagination\PaginationServiceProvider
+**_ [8 ] Provider: Kavenegar\Laravel\ServiceProviderLaravel9_**
+.
+.
+.
+```
 
 ## Step 4 - Api-Key
 
