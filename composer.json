@@ -15,6 +15,7 @@
          "email":"support@kavenegar.com"
       }
    ],
+   "minimum-stability":"dev",
    "require":{  
       "kavenegar/php":"*"
    },
