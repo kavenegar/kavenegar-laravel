@@ -1,6 +1,9 @@
-# Kavenegar Laravel
+# Kavenegar Laravel Package
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/kavenegar/laravel.svg?style=flat-square)](https://packagist.org/packages/kavenegar/laravel)
+[![Total Downloads](https://img.shields.io/packagist/dt/kavenegar/laravel.svg?style=flat-square)](https://packagist.org/packages/kavenegar/laravel)
 
-**First of all you will ned an [API Key](http://panel.kavenegar.com/client/setting/account "API Key") . You can get one [Here](https://panel.kavenegar.com/Client/Membership/Register).**
+
+This is a package to help you integrate your Kavenegar's account into your laravel application as smoothly as possible. Before you use this library, you obviously need an [API Key](http://panel.kavenegar.com/client/setting/account "API Key") . You can get one [Here](https://panel.kavenegar.com/Client/Membership/Register).
 
 ##### Supported Laravel Versions:
 
@@ -10,7 +13,7 @@
 - V.7
 - V.8
 - **V.9**
-  > We highly recomment you to always use the latest version of laravel
+  > We highly recommend you to always use the latest version of laravel
 
 # Installation
 
@@ -24,20 +27,21 @@ composer require kavenegar/laravel
 ```
 
 - **Method 2**:
-  Add this line to **Composer.json** file in your project
+  Add this line to **composer.json** file in your project
 
 ```php
 "kavenegar/php": "*"
 ```
 
-Then run following command to download extension using **composer**
+Then run the following command to install Kavenegar's library using **composer**
 
 ```php
 $ composer update
 ```
 
-## Step 2
+## Step 2 (Skip if you're using Laravel 5.8 or higer)
 
+In Laravel 5.8, the packages will be automatically discovered. But in the case you're still using a lower version of Laravel 5.8:
 Head to **config/app.php** and add this line to the end of **providers** Array:
 
 ```php
@@ -66,13 +70,13 @@ Then in the **config/app.php** and add this line to the end of **aliases** Array
 
 ## Step 3 - Publish
 
-Run this command in your project dirctory:
+Run this command in your project's root dirctory:
 
 ```
 php artisan vendor:publish
 ```
 
-In the message appear, find the number of Kavenegar, enter the related number then hit Enter. for Example in the below case you must enter **9** then enter:
+In the appeared message, find the number of Kavenegar, enter the number and hit Enter. for Example in the below case you must enter **9** then enter:
 
 ```bash
 Which provider or tag files would you like to publish?:
@@ -268,6 +272,7 @@ class InvoicePaid extends KavenegarBaseNotification
 Bug fixes, docs, and enhancements welcome! Please let us know [support@kavenegar.com](mailto:support@kavenegar.com?Subject=SDK)
 
 <div  dir="rtl">
+
 ## راهنما
 
 ### معرفی سرویس کاوه نگار
