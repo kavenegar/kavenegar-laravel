@@ -27,7 +27,7 @@ class KavenegarBaseNotification extends Notification
      * Get the mail representation of the notification.
      *
      * @param mixed $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
+     * @return \Kavenegar\Laravel\Message\KavenegarMessage
      */
     public function toKavenegar($notifiable)
     {
