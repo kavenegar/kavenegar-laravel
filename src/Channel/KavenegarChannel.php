@@ -47,7 +47,7 @@ class KavenegarChannel
         $message = $notification->toKavenegar($notifiable);
 
         $message->to($message->to ?: $notifiable->routeNotificationFor('kavenegar', $notification));
-        if (!$message->to || !($message->from || $message->method)) {
+        if (!$message->to || !$message->method) {
             return;
         }
 
