@@ -64,7 +64,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         $version = intval($app::VERSION);
 
-        $provider_name = "ServiceProviderLaravel" . $version;
+        $provider_name = "Kavenegar\\Laravel\\ServiceProviderLaravel" . $version;
         if (class_exists($provider_name)) {
             return new $provider_name($app);
         }
