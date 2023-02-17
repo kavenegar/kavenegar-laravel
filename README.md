@@ -9,7 +9,8 @@
 - V.6
 - V.7
 - V.8
-- **V.9**
+- V.9
+- **V.10**
   > We highly recomment you to always use the latest version of laravel
 
 # Installation
