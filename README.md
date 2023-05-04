@@ -145,7 +145,7 @@ catch(\Kavenegar\Exceptions\ApiException $e){
 catch(\Kavenegar\Exceptions\HttpException $e){
     // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
     echo $e->errorMessage();
-}catch(\Exeption $ex){
+}catch(\Exceptions $ex){
    // در صورت بروز خطایی دیگر
     echo $ex->getMessage()
 }
