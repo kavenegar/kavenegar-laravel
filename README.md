@@ -1,6 +1,6 @@
 # Kavenegar Laravel
 
-**First of all you will ned an [API Key](http://panel.kavenegar.com/client/setting/account "API Key") . You can get one [Here](https://panel.kavenegar.com/Client/Membership/Register).**
+**First of all you will need an [API Key](http://panel.kavenegar.com/client/setting/account "API Key") . You can get one [Here](https://panel.kavenegar.com/Client/Membership/Register).**
 
 ##### Supported Laravel Versions:
 
