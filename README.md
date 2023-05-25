@@ -73,7 +73,7 @@ Run this command in your project dirctory:
 php artisan vendor:publish
 ```
 
-In the message appear, find the number of Kavenegar, enter the related number then hit Enter. for Example in the below case you must enter **9** then enter:
+In the message appear, find the number of Kavenegar, enter the related number then hit Enter. for Example in the below case you must enter **8** then enter:
 
 ```bash
 Which provider or tag files would you like to publish?:
