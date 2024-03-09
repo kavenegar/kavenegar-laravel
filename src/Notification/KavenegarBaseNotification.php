@@ -6,11 +6,18 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use Kavenegar\Laravel\Channel\KavenegarChannel;
 use Kavenegar\Laravel\Message\KavenegarMessage;
 
-class KavenegarBaseNotification extends Notification
+abstract class KavenegarBaseNotification extends Notification
 {
+
+    /**
+     * The notification's delivery channels.
+     * other channels: mail, database, broadcast, nexmo, slack, and custom channels
+     *
+     * @var array
+     */
+    public array $drivers = [];
 
     /**
      * Get the notification's delivery channel.
@@ -20,19 +27,16 @@ class KavenegarBaseNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['kavenegar'];
+        return array_merge($this->drivers, ['kavenegar']);
     }
 
     /**
-     * Get the mail representation of the notification.
+     * Get the kavenegar representation of the notification.
      *
      * @param mixed $notifiable
      * @return \Kavenegar\Laravel\Message\KavenegarMessage
      */
-    public function toKavenegar($notifiable)
-    {
-        return new KavenegarMessage();
-    }
+    abstract public function toKavenegar($notifiable): KavenegarMessage;
 
     /**
      * Get the array representation of the notification.
