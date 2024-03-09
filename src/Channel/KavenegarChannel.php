@@ -58,8 +58,10 @@ class KavenegarChannel
 
     public function verifyLookup(KavenegarMessage $message)
     {
-        $token2 = isset($message->tokens[1]) ? $message->tokens[1] : null;
-        $token3 = isset($message->tokens[2]) ? $message->tokens[2] : null;
-        return Kavenegar::VerifyLookup($message->to, $message->tokens[0], $token2, $token3, $message->method);
+        $token2  = isset($message->tokens[1]) ? $message->tokens[1] : null;
+        $token3  = isset($message->tokens[2]) ? $message->tokens[2] : null;
+        $token10 = isset($message->tokens[3]) ? $message->tokens[3] : null;
+        $token20 = isset($message->tokens[4]) ? $message->tokens[4] : null;
+        return Kavenegar::VerifyLookup($message->to, $message->tokens[0], $token2, $token3, $message->method, null, $token10, $token20);
     }
 }
