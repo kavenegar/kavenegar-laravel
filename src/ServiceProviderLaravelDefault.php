@@ -6,7 +6,7 @@ use Kavenegar\KavenegarApi as KavenegarApi;
 use Illuminate\Support\Facades\Notification;
 use Kavenegar\Laravel\Channel\KavenegarChannel;
 
-class ServiceProviderLaravel10 extends \Illuminate\Support\ServiceProvider
+class ServiceProviderLaravelDefault extends \Illuminate\Support\ServiceProvider
 {
     /**
      * Bootstrap the application events.

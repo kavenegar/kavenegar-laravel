@@ -64,11 +64,16 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         $version = intval($app::VERSION);
 
-        $provider_name = "Kavenegar\\Laravel\\ServiceProviderLaravel" . $version;
-        if (class_exists($provider_name)) {
-            return new $provider_name($app);
+        switch ($version) {
+            case 4:
+                return new ServiceProviderLaravel4($app);
+                break;
+            case 5:
+                return new ServiceProviderLaravel5($app);
+                break;
+            default:
+                return new ServiceProviderLaravelDefault($app);
         }
-        throw new RuntimeException('Your version of Laravel is not supported');
     }
 
     /**
